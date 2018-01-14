@@ -1,3 +1,12 @@
 {
-    "plugins": ["codepen"]
+    "plugins": ["codepen", "googledocs"],
+    "pluginsConfig": {
+      "googledocs": {
+          "rm": "minimal",
+          "frameborder": "0",
+          "width": "500px",
+          "height": "500px",
+          "noembed": "new window"
+      }
+  }
 }
