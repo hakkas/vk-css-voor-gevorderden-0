@@ -183,3 +183,4 @@ CSS grid is iets fantastisch, maar het is echt _veel meer_ dan de stof die in de
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 * https://www.w3schools.com/css/css_grid.asp
 * https://people.igalia.com/svillar/slides/blinkon3.pdf
+* https://bitsofco.de/css-grid-terminology/
