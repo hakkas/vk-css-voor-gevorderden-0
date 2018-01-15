@@ -1,4 +1,4 @@
-# Lesbrief 1: Een creëren van een layout met grid
+# Les 1: Het creëren van een layout met grid
 
 Sinds het ontstaan van het web is het altijd al een uitdaging geweest om op een goede manier de layout voor een webpagina te definiëren. Terwijl hier in de jaren 90 frames en tabellen werden gebruikt is men met de komst van CSS overgegaan op div's en float's. Maar zowel frames als tabellen als floats zijn eigenlijk niet geschikt om layouts mee te maken. Ook jullie hebben geleerd om layouts te maken met floats, maar gelukkig zijn hier de afgelopen jaren betere methoden voor bedacht. Een van die methodes is grid! Daar gaat dit hoofdstuk over.
 
@@ -107,7 +107,7 @@ Zie ook hieronder het uitgewerkte voorbeeld:
 Nu wil je als webdesigner uiteindelijk dit soort layouts maken:
 [](https://docs.google.com/drawings/d/1-VTi4-hQc_w4njq-4oK20rsdAHmmmf6r98OdUxc8kas/edit?usp=sharing)
 
-Deze zijn wat geavanceerder. Allereerst is het belangrijk om te weten dat je dit op verschillende manieren kunt doen. Een vrij eenvoudige en overzichtelijke manier om dit met CSS grid te doen is door gebruik te maken van de property `grid-template-areas` 's. Het werkt als volgt:'.
+Deze zijn wat geavanceerder. Allereerst is het belangrijk om te weten dat je dit op verschillende manieren kunt doen. Een vrij eenvoudige en overzichtelijke manier om dit met CSS grid te doen is door gebruik te maken van de property `grid-template-areas`. Het werkt als volgt:
 
 We gaan eerst de HTML aanpassen:
 ``` html
@@ -136,7 +136,7 @@ We gaan nu naar de CSS. Je stelt in de container alle gebieden van je layout in 
                        "voet voet voet";
 }
 ```
-We hebben drie rijen en vier kolommen. We hebben de verhoudingen ingesteld met `grid-template-columns` en `grid-template-rows`. En vervolgens delen we het raster in gebieden. Elk gebied krijgt een eigen naam. Dus hoofd is een gebied dat in de breedte drie cellen in beslag neemt. Menu is een gebied dat in het verticale twee cellen in beslag neemt enz.
+We hebben vier rijen en drie kolommen. We hebben de verhoudingen ingesteld met `grid-template-columns` en `grid-template-rows`. En vervolgens delen we het raster in gebieden (areas). Elk gebied krijgt een eigen naam. Dus hoofd is een gebied dat in de breedte drie cellen in beslag neemt. Menu is een gebied dat in het verticale twee cellen in beslag neemt enz.
 
 Het enige dat we nu nog hoeven te doen is dat we per div moeten aangeven voor welk gebied het is. Dat doen we met de property `grid-area`. Zie:
 
@@ -179,6 +179,7 @@ Volgens mij spreekt het voor zich! Zie hieronder voor het gehele voorbeeld:
 
 ## Voor de rest
 CSS grid is iets fantastisch, maar het is echt _veel meer_ dan de stof die in deze lesbrief is behandeld. We moedigen je daarom van harte aan om je te verdiepen in dit onderwerp. Dit kan allereerst door 25 hele leuke puzzeltjes op http://cssgridgarden.com/ te gaan doen. Voor de rest kun je eens kijken naar de volgende sites:
+* https://www.youtube.com/watch?v=7kVeCqQCxlk
 * https://css-tricks.com/snippets/css/complete-guide-grid/
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 * https://www.w3schools.com/css/css_grid.asp
