@@ -178,8 +178,12 @@ Volgens mij spreekt het voor zich! Zie hieronder voor het gehele voorbeeld:
 
 
 ## Voor de rest
-CSS grid is iets fantastisch, maar het is echt _veel meer_ dan de stof die in deze lesbrief is behandeld. We moedigen je daarom van harte aan om je te verdiepen in dit onderwerp. Dit kan allereerst door 25 hele leuke puzzeltjes op http://cssgridgarden.com/ te gaan doen. Voor de rest kun je eens kijken naar de volgende sites:
-* https://www.youtube.com/watch?v=7kVeCqQCxlk
+CSS grid is iets fantastisch, maar het is echt _veel meer_ dan de stof die in deze lesbrief is behandeld. We moedigen je daarom van harte aan om je te verdiepen in dit onderwerp. Dit kan allereerst door 25 hele leuke puzzeltjes op http://cssgridgarden.com/ te gaan doen. We raden je ook het volgende filmpje aan:
+<div class="intrinsic-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7kVeCqQCxlk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+Voor de rest kun je eens kijken naar de volgende sites: 
 * https://css-tricks.com/snippets/css/complete-guide-grid/
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 * https://www.w3schools.com/css/css_grid.asp
