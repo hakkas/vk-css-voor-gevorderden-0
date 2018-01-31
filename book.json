@@ -1,5 +1,5 @@
 {
-    "plugins": ["codepen", "googledocs"],
+    "plugins": ["codepen", "googledocs", "python-visualizer"],
     "pluginsConfig": {
       "googledocs": {
           "rm": "minimal",

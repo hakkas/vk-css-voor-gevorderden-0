@@ -39,7 +39,7 @@ En de bijbehorende CSS:
 En het resultaat is:
 [](codepen://h-akkas/Mrqwpx?height=150&theme=0)
 
-Merk op dat het `display` eigenschap op het container element is ingesteld op `flex`. En met `justify-content` kunnen we instellen hoe de _flex-items_ in de container worden uitgelijnd. `space-evenly` betekent dat de ruimte tussen de flex-items precies eerlijk verdeeld wordt. Naast `space-evenly` heb je ook nog de volgende mogelijkheden:
+Merk op dat het `display` eigenschap op het container element is ingesteld op `flex`. En met `justify-content` kunnen we instellen hoe de _flex-items_ horizontaal(!) in de container worden uitgelijnd. `space-evenly` betekent dat de ruimte tussen de flex-items precies eerlijk verdeeld wordt. Naast `space-evenly` heb je ook nog de volgende mogelijkheden:
 
 
 | justify-content        | Betekenis           |
@@ -76,10 +76,25 @@ Met flex-direction kun je de richting van de flex-items bepalen. Standaard staan
 [](codepen://h-akkas/mpGevg?height=500&theme=0)
 
 Naast de waarde `column` kun je ook de volgende waarden meegeven:
+
+
 | flex-direction        | Betekenis           |
 | ------------- |:-------------:|
-| `justify-content: center;` | ![](./images/center.png) |
-| `justify-content: flex-start;` | ![](./images/flex-start.png) |
-| `justify-content: flex-end;` | ![](./images/flex-end.png) |
-| `justify-content: space-around;` | ![](./images/space-around.png) |
-| `justify-content: space-between;` | ![](./images/space-between.png) |
+| `flex-direction: column;` | De flex-items worden onder elkaar weergegeven |
+| `flex-direction: column-reverse;` | De flex-items worden in omgekeerde volgorde onder elkaar weergegeven |
+| `flex-direction: row;` | De flex-items worden naast elkaar weergegeven |
+| `flex-direction: row-reverse;` | De flex-items worden in omgekeerde volgorde naast elkaar weergegeven |
+
+## Verticaal uitlijnen met `align-items`
+Met `justify-items` heb je geleerd hoe je elementen _horizontaal_ kunt uitlijnen. Met flexbox kun je (gelukkig) ook op een vrij eenvoudige manier elementen _verticaal_ uitlijnen. Hieronder een voorbeeld waarbij we de elementen verticaal hebben gecentreerd.
+
+[](codepen://h-akkas/VQLwGP?height=400&theme=0)
+
+Zoals je kunt zien hebben we een attribuut toegevoegd aan de container: `align-items: center`. Naast center kun je ook de volgende opties meegeven aan `align-items`:
+
+![](./images/align-items.svg)
+
+## Voor de rest
+FlexBox is een fantastische techniek om elementen in een 1-dimensionale container te positioneren. Samen met Gridlayout kun je de meest geavanceerde layouts maken. Wat je hierboven hebt geleerd is slechts de basis. Je kunt nu de leuke en leerzame Flexxy Froggy opgaven maken door <a href="http://flexboxfroggy.com/#nl">hier</a> te klikken. Ook kun je de volgende pagina's raadplegen voor meer documentatie:
+* https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
