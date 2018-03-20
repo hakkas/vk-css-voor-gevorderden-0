@@ -23,7 +23,7 @@ Maak de * selector kan ook worden gebruikt voor alle (child) elementen van eleme
 }
 ```
 
-Deze code geeft ieder element _in_ de #container een zweart randje.
+Deze code geeft ieder element _in_ de #container een zwart randje.
 
 ### Een id als selector: #X
 ```css
@@ -32,12 +32,7 @@ Deze code geeft ieder element _in_ de #container een zweart randje.
    margin: auto;
 }
 ```
-
-Prefixing the hash symbol to a selector allows us to target by id. This is easily the most common usage, however be cautious when using id selectors.
-
-Ask yourself: do I absolutely need to apply an id to this element in order to target it?
-
-id selectors are rigid and don't allow for reuse. If possible, first try to use a tag name, one of the new HTML5 elements, or even a pseudo-class.
+Door een hashtag te gebruiken voor een selector kun je elementen met een specifieke id selecteren. Dit wordt vaak gebruikt omdat het lekker simpel is om een bepaald element te selecteren.
 
 ## Een class als selector: .X
 ```css
@@ -45,7 +40,7 @@ id selectors are rigid and don't allow for reuse. If possible, first try to use 
   color: red;
 }
 ```
-This is a class selector. The difference between ids and classes is that, with the latter, you can target multiple elements. Use classes when you want your styling to apply to a group of elements. Alternatively, use ids to find a needle-in-a-haystack, and style only that specific element.
+Met een . kunnen we elementen met een bepaalde class selecteren. Het verschil tussen een id en een class is waarschijnlijk bekend: Er kunnen meerdere elementen in een HTML-document met dezelfde class voorkomen, terwijl er maar 1 element mag zijn die dezelfde id mag hebben.
 
 ## X Y
 ```css
@@ -53,17 +48,16 @@ li a {
   text-decoration: none;
 }
 ```
+Stel dat je niet alle linkjes (a) wilt selecteren, maar alleen de linkjes (a) die in een li zitten? Dat kan met een zogenaamde _descendant selector_. Als je ```li a``` als selector aangeeft, dan worden alle linkjes die in een li-element zitten geselecteerd.
 
-The next most comment selector is the descendant selector. When you need to be more specific with your selectors, you use these. For example, what if, rather than targeting all anchor tags, you only need to target the anchors which are within an unordered list? This is specifically when you'd use a descendant selector.
-
-Pro-tip - If your selector looks like X Y Z A B.error, you're doing it wrong. Always ask yourself if it's absolutely necessary to apply all of that weight.
+Je kunt ook ```ol li a``` als selector opgeven. In dit geval worden alle elementen geselecteerd waarbij de ```a``` in een ```li``` zit en die ```li``` moet dan in een ```ol``` zitten.
 
 ## X
 ```css
 a { color: red; }
 ul { margin-left: 0; }
 ```
-What if you want to target all elements on a page, according to their type, rather than an id or classname? Keep it simple, and use a type selector. If you need to target all unordered lists, use ul {}.
+De meest eenvoudige selector is de _type selector_. Als je bijvoorbeeld alle ul's in het document wilt selecteren, dan gebruik je als selector gewoon ```ul```.
 
 ## X:visited en X:link
 ```css
@@ -80,7 +74,7 @@ ul + p {
    color: red;
 }
 ```
-This is referred to as an adjacent selector. It will select only the element that is immediately preceded by the former element. In this case, only the first paragraph after each ul will have red text.
+Dit is een voorbeeld van een _adjacent selector_. Adjacent betekent aangrenzend of naburig. In het voorbeeld ```ul + p``` worden dus alle p's geselecteerd die _direct_ _na_ een ul komen.
 
 ## X > Y
 
@@ -89,7 +83,7 @@ div#container > ul {
   border: 1px solid black;
 }
 ```
-The difference between the standard X Y and X > Y is that the latter will only select direct children. For example, consider the following markup.
+Als je een &gt; gebruikt tussen twee elementen, dan worden alleen de directe kinderen geselecteerd. Dus als de ul direct in de div zit, dan krijgt hij een randje. Maar als de ul ook nog eens in een andere div zit (dus als het een van de kleinkinderen is), dan wordt hij niet geselecteerd.
 
 ```html
 <div id="container">

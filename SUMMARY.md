@@ -1,5 +1,6 @@
 # Summary
 
+* [Les 0 - CSS resets](chapter0.md)
 * [Les 1 - Gridlayout](chapter1.md)
 * [Les 2 - Maak je site responsive](chapter2.md)
 * [Les 3 - Flexbox](chapter3.md)
