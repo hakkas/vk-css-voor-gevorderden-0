@@ -76,6 +76,10 @@ ul + p {
 ```
 Dit is een voorbeeld van een _adjacent selector_. Adjacent betekent aangrenzend of naburig. In het voorbeeld ```ul + p``` worden dus alle p's geselecteerd die _direct_ _na_ een ul komen.
 
+Voorbeeld:
+[](codepen://h-akkas/mxRZNb?height=300&theme=0)
+
+
 ## X > Y
 
 ```css
@@ -85,23 +89,8 @@ div#container > ul {
 ```
 Als je een &gt; gebruikt tussen twee elementen, dan worden alleen de directe kinderen geselecteerd. Dus als de ul direct in de div zit, dan krijgt hij een randje. Maar als de ul ook nog eens in een andere div zit (dus als het een van de kleinkinderen is), dan wordt hij niet geselecteerd.
 
-```html
-<div id="container">
-   <ul>
-      <li> List Item
-        <ul>
-           <li> Child </li>
-        </ul>
-      </li>
-      <li> List Item </li>
-      <li> List Item </li>
-      <li> List Item </li>
-   </ul>
-</div>
-```
-A selector of #container > ul will only target the uls which are direct children of the div with an id of container. It will not target, for instance, the ul that is a child of the first li.
-
-For this reason, there are performance benefits in using the child combinator. In fact, it's recommended particularly when working with JavaScript-based CSS selector engines.
+Zie hier een voorbeeld:
+[](codepen://h-akkas/jzygbw?height=300&theme=0)
 
 ## X ~ Y
 
@@ -110,7 +99,23 @@ ul ~ p {
    color: red;
 }
 ```
-This sibling combinator is similar to X + Y, however, it's less strict. While an adjacent selector (ul + p) will only select the first element that is immediately preceded by the former selector, this one is more generalized. It will select, referring to our example above, any p elements, as long as they follow a ul.
+Deze zogenaamde _sibling combinator_ lijkt veel op de + van X + Y, behalve dan dat hij minder strict is. Een sibling betekent een broertje of zusje. In de context van HTML bedoel je daarmee de elementen die op gelijke niveau zijn. In het volgende voorbeeld zijn de p en de ul _siblings_ van elkaar:
+
+```html
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+  </ul>
+  <p>
+  </p>
+</body>
+```
+
+Terwijl de _adjacent selector_ (ul + p) alleen de eerste sibling van het type p selecteert, is de ~ minder strict. Bij ul ~ p hoeft de p niet meteen na de ul te komen. Als hij maar na de ul komt en een sibling is.
+
+In het onderstaande voorbeeld zie je dat de alinea met tekst groen is, terwijl de p niet direct na de ul komt:
+[](codepen://h-akkas/xWgvLe?height=300&theme=0)
 
 ## X[title]
 ```css
@@ -118,45 +123,47 @@ a[title] {
    color: green;
 }
 ```
-Referred to as an attributes selector, in our example above, this will only select the anchor tags that have a title attribute. Anchor tags which do not will not receive this particular styling. But, what if you need to be more specific? Well...
+Hier selecteren we alle elementen die een attribuut genaamd title hebben. Je kunt natuurlijk ook andere attributen tussen de blokhaken zetten.
 
 ##  X[href="foo"]
 ```css
-a[href="http://net.tutsplus.com"] {
-  color: #1f6053; /* nettuts green */
+a[href="https://www.coderclass.nl"] {
+  color: #1f6053; /* green */
 }
 ```
-The snippet above will style all anchor tags which link to http://net.tutsplus.com; they'll receive our branded green color. All other anchor tags will remain unaffected.
+In het bovenstaande voorbeeld worden alle linkjes die verwijzen naar https://www.coderclass.nl geselecteerd.
 
-Note that we're wrapping the value in quotes. Remember to also do this when using a JavaScript CSS selector engine. When possible, always use CSS3 selectors over unofficial methods.
+Denk erom dat je de link tussen aanhalingstekens moet zetten.
 
-This works well, though, it's a bit rigid. What if the link does indeed direct to Nettuts+, but, maybe, the path is nettuts.com rather than the full url? In those cases we can use a bit of the regular expressions syntax.
+Dit is best handig, maar stel dat je alle linkjes die verwijzen naar een bepaald domein wilt selecteren? Dus https://www.coderclass.nl/onsteam/, maar ook https://www.coderclass.nl/badges/ etc. Dan kunnen we gebruik maken van het sterretje. Zie hieronder:
 
-##  X[href*="nettuts"]
+##  X[href*="coderclass"]
 ```css
-a[href*="tuts"] {
-  color: #1f6053; /* nettuts green */
+a[href*="coderclass"] {
+  color: #1f6053; /* green */
 }
 ```
 
-There we go; that's what we need. The star designates that the proceeding value must appear somewhere in the attribute's value. That way, this covers nettuts.com, net.tutsplus.com, and even tutsplus.com.
-
-Keep in mind that this is a broad statement. What if the anchor tag linked to some non-Envato site with the string tuts in the url? When you need to be more specific, use ^ and $, to reference the beginning and end of a string, respectively.
+*= betekent dat het woordje coderclass ergens in de url moet voorkomen.
 
 ##  X[href^="http"]
 ```css
 a[href^="http"] {
-   background: url(path/to/external/icon.png) no-repeat;
+   background-color: url(path/to/external/icon.png) no-repeat;
    padding-left: 10px;
 }
 ```
-Ever wonder how some websites are able to display a little icon next to the links which are external? I'm sure you've seen these before; they're nice reminders that the link will direct you to an entirely different website.
 
-This is a cinch with the carat symbol. It's most commonly used in regular expressions to designate the beginning of a string. If we want to target all anchor tags that have a href which begins with http, we could use a selector similar to the snippet shown above.
+<div class="alert alert-success">
+  <i class="fa fa fa-info-circle"></i>
+  <p>
+    <strong>Opdracht</strong> Maak nu opdracht 7 in repl.it
+  </p>
+</div>
 
-Notice that we're not searching for http://; that's unnecessary, and doesn't account for the urls that begin with https://.
+Met het dakje ^ kun je aangeven dat de inhoud van href moet beginnen met http. Dit kun je gebruiken om de externe links op je pagina anders op te maken dan de interne links.
 
-Now, what if we wanted to instead style all anchors which link to, say, a photo? In those cases, let's search for the end of the string.
+En stel je voor dat we alle links die naar een foto verwijzen willen selecteren. Dan moeten we naar het einde van de string zoeken. Kijk maar:
 
 ##  X[href$=".jpg"]
 ```css
@@ -164,7 +171,7 @@ a[href$=".jpg"] {
    color: red;
 }
 ```
-Again, we use a regular expressions symbol, $, to refer to the end of a string. In this case, we're searching for all anchors which link to an image -- or at least a url that ends with .jpg. Keep in mind that this certainly won't work for gifs and pngs.
+Hiermee selecteren we alle elementen waarvan de href eindigt op een jpg. Een plaatje dus. Het dollar tekentje ($) geeft het einde van de string aan.
 
 ##  ```X[data-*="foo"]```
 
@@ -174,7 +181,7 @@ a[data-filetype="image"] {
 }
 ```
 
-Refer back to number eight; how do we compensate for all of the various image types: png, jpeg,jpg, gif? Well, we could create multiple selectors, such as:
+Stel dat we niet alleen de jpg bestanden, maar ook gif's, png bestanden, bmp bestanden etc. zouden willen selecteren. Dan kan dat natuurlijk op deze manier:
 
 ```css
 a[href$=".jpg"],
@@ -185,53 +192,19 @@ a[href$=".gif"] {
 }
 ```
 
-But, that's a pain in the butt, and is inefficient. Another possible solution is to use custom attributes. What if we added our own data-filetype attribute to each anchor that links to an image?
+Maar dit is lelijk en inefficient. Een andere oplossing zou zijn om met _custom attributen_ te werken. We kunnen namelijk onze eigen attributen bedenken en toevoegen aan een element. We bedenken er even een: ```data-filetype```. En de data-filetype van alle links die naar plaatjes verwijzen stellen we in op ```'image'```. Dat ziet er zo uit:
 
 ```html
 <a href="path/to/image.jpg" data-filetype="image"> Image Link </a>
 ```
 
-Then, with that hook in place, we can use a standard attributes selector to target only those anchors.
-
+Nu we dat gedaan hebben hoeven we in de selector alleen aan te geven dat we alle links willen waarvan de data-filetype gelijk is aan image. Lekker handig toch?
 
 ```css
 a[data-filetype="image"] {
    color: red;
 }
 ```
-
-##  X[foo~="bar"]
-```css
-a[data-info~="external"] {
-   color: red;
-}
-
-a[data-info~="image"] {
-   border: 1px solid black;
-}
-```
-Here's a special one that'll impress your friends. Not too many people know about this trick. The tilda (~) symbol allows us to target an attribute which has a spaced-separated list of values.
-
-Going along with our custom attribute from number fifteen, above, we could create a data-info attribute, which can receive a space-separated list of anything we need to make note of. In this case, we'll make note of external links and links to images -- just for the example.
-
-```html
-<a href="path/to/image.jpg" data-info="external image"> Click Me, Fool </a>
-```
-With that markup in place, now we can target any tags that have either of those values, by using the ~ attributes selector trick.
-
-```css
-/* Target data-info attr that contains the value "external" */
-a[data-info~="external"] {
-   color: red;
-}
-
-/* And which contain the value "image" */
-a[data-info~="image"] {
-  border: 1px solid black;
-}
-```
-
-Pretty nifty, ay?
 
 ##  X:checked
 
@@ -240,8 +213,7 @@ input[type=radio]:checked {
    border: 1px solid black;
 }
 ```
-
-This pseudo class will only target a user interface element that has been checked - like a radio button, or checkbox. It's as simple as that.
+Met deze zogenaamde psuedoclass zullen alleen de radiobuttons/checkboxen geselecteerd worden die aangevinkt zijn.
 
 ##  X:after
 The before and after pseudo classes kick butt. Every day, it seems, people are finding new and creative ways to use them effectively. They simply generate content around the selected element.
